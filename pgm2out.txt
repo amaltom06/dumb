@@ -1,0 +1,8 @@
+mits@mits-Lenovo-S510:~/Desktop/python$ python3 pgm2.py
+The contents of the file are
+['what', 'why', 'who', 'whose', 'how']
+Odd line of the file are
+['what', 'who', 'how']
+Even line of the file are
+['why', 'whose']
+

@@ -1,0 +1,4 @@
+mits@mits-Lenovo-S510:~/Desktop/python$ python3 pgm5.py
+   rollno  name  age
+0       7  amal   37
+1      10   tom   34

@@ -1,0 +1,4 @@
+mits@mits-Lenovo-S510:~/Desktop/python$ python3 pgm3.py
+['1', 'amal', '21']
+['2', 'tom', '34']
+['3', 'parakkaden', '78']
