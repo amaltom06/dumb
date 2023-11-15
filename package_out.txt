@@ -1,0 +1,17 @@
+mits@mits-Lenovo-S510:~/Desktop$ python3 main2.py
+enter length of rectangle:2
+enter width rectangle:3
+enter radius of circle:4
+enter length of cuboid:2
+enter width of cuboid:3
+enter height cuboid:4
+enter radius of sphere:6
+area of a rectangle =  6
+perimeter of a rectangle =  10
+area of the circle =  113.09733552923255
+perimeter of the circle =  37.69911184307752
+surface area of a cuboid =  52
+volume of a cuboid=  24
+surface area of the circle =  452.3893421169302
+perimeter of the circle =  904.7786842338603
+
