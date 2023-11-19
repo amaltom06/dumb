@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Exam</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .question {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="quiz-container">
+  <div id="question-container" class="question"></div>
+  <div id="answer-buttons" class="btn-container"></div>
+  <button id="next-button" class="btn" onclick="nextQuestion()">Next</button>
+  <button id="submit-button" class="btn" onclick="submitAnswers()">Submit</button>
+  <div id="result-container"></div>
+</div>
+
+<script>
+  const questions = [
+    {
+      question: "What is the capital of France?",
+      answers: [
+        { text: "Berlin", correct: false },
+        { text: "Paris", correct: true },
+        { text: "Madrid", correct: false },
+        { text: "Rome", correct: false }
+      ]
+    },
+    {
+      question: "What is 2 + 2?",
+      answers: [
+        { text: "4", correct: true },
+        { text: "6", correct: false },
+        { text: "8", correct: false },
+        { text: "10", correct: false }
+      ]
+    },
+    {
+        question: "What is the capital of india?",
+        answers: [
+          { text: "Berlin", correct: false },
+          { text: "new delhi", correct: true },
+          { text: "Madrid", correct: false },
+          { text: "Rome", correct: false }
+        ]
+      },
+      {
+        question: "who is the father of our nation?",
+        answers: [
+          { text: "indira ghandi", correct: false },
+          { text: "mahatma gandhi", correct: true },
+          { text: "rahul ghandi", correct: false },
+          { text: "sonia ghandi", correct: false }
+        ]
+      },
+   
+  ];
+
+  let currentQuestionIndex = 0;
+  let score = 0;
+
+  const questionContainer = document.getElementById("question-container");
+  const answerButtonsContainer = document.getElementById("answer-buttons");
+  const nextButton = document.getElementById("next-button");
+  const submitButton = document.getElementById("submit-button");
+  const resultContainer = document.getElementById("result-container");
+
+  function startQuiz() {
+    nextButton.style.display = "none";
+    submitButton.style.display = "none";
+    resultContainer.innerHTML = "";
+    score = 0;
+    currentQuestionIndex = 0;
+    showQuestion(questions[currentQuestionIndex]);
+  }
+
+  function showQuestion(question) {
+    questionContainer.innerText = question.question;
+    answerButtonsContainer.innerHTML = "";
+    question.answers.forEach(answer => {
+      const button = document.createElement("button");
+      button.innerText = answer.text;
+      button.classList.add("btn");
+      button.addEventListener("click", () => selectAnswer(answer));
+      answerButtonsContainer.appendChild(button);
+    });
+  }
+
+  function selectAnswer(answer) {
+    if (answer.correct) {
+      score++;
+    }
+
+    if (currentQuestionIndex < questions.length - 1) {
+      currentQuestionIndex++;
+      showQuestion(questions[currentQuestionIndex]);
+    } else {
+      nextButton.style.display = "none";
+      submitButton.style.display = "block";
+    }
+  }
+
+  function nextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      currentQuestionIndex++;
+      showQuestion(questions[currentQuestionIndex]);
+    }
+
+    if (currentQuestionIndex === questions.length - 1) {
+      nextButton.style.display = "none";
+      submitButton.style.display = "block";
+    }
+  }
+
+  function submitAnswers() {
+    resultContainer.innerHTML = `Your score: ${score} out of ${questions.length}`;
+  }
+
+  
+  startQuiz();
+</script>
+
+</body>
+</html>
