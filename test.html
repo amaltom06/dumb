@@ -6,11 +6,67 @@
   <title>Online Exam</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
+      font-family: 'Arial', sans-serif;
+      margin: 100px;
+      background-color: #f4f4f4;
     }
+
+    #quiz-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
     .question {
       margin-bottom: 10px;
+      font-size: 18px;
+      
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    .question{
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: xx-large;
+    }
+    #submit-button
+    {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #af4c4c;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+
+    #result-container {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
     }
   </style>
 </head>
@@ -25,109 +81,119 @@
 </div>
 
 <script>
-  const questions = [
-    {
-      question: "What is the capital of France?",
-      answers: [
-        { text: "Berlin", correct: false },
-        { text: "Paris", correct: true },
-        { text: "Madrid", correct: false },
-        { text: "Rome", correct: false }
-      ]
-    },
-    {
-      question: "What is 2 + 2?",
-      answers: [
-        { text: "4", correct: true },
-        { text: "6", correct: false },
-        { text: "8", correct: false },
-        { text: "10", correct: false }
-      ]
-    },
-    {
-        question: "What is the capital of india?",
+  
+    const questions = [
+      {
+        question: "WHAT IS THE CAPITAL OF KERALA?",
         answers: [
-          { text: "Berlin", correct: false },
-          { text: "new delhi", correct: true },
-          { text: "Madrid", correct: false },
-          { text: "Rome", correct: false }
+          { text: "KOCHI", correct: false },
+          { text: "THIRUVANANTHAPURAM", correct: true },
+          { text: "KOTTAYAM", correct: false },
+          { text: "ALAPPUZHA", correct: false }
         ]
       },
       {
-        question: "who is the father of our nation?",
+        question: "WHO IS THE CHEIF MINISTER OF KERALA?",
         answers: [
-          { text: "indira ghandi", correct: false },
-          { text: "mahatma gandhi", correct: true },
-          { text: "rahul ghandi", correct: false },
-          { text: "sonia ghandi", correct: false }
+          { text: "PINARAYI VIJAYAN", correct: true },
+          { text: "OMMEN CHNADI", correct: false },
+          { text: "VD SATHESHAN", correct: false },
+          { text: "RAMESH CHENNITHALA", correct: false }
         ]
       },
-   
-  ];
-
-  let currentQuestionIndex = 0;
-  let score = 0;
-
-  const questionContainer = document.getElementById("question-container");
-  const answerButtonsContainer = document.getElementById("answer-buttons");
-  const nextButton = document.getElementById("next-button");
-  const submitButton = document.getElementById("submit-button");
-  const resultContainer = document.getElementById("result-container");
-
-  function startQuiz() {
-    nextButton.style.display = "none";
-    submitButton.style.display = "none";
-    resultContainer.innerHTML = "";
-    score = 0;
-    currentQuestionIndex = 0;
-    showQuestion(questions[currentQuestionIndex]);
-  }
-
-  function showQuestion(question) {
-    questionContainer.innerText = question.question;
-    answerButtonsContainer.innerHTML = "";
-    question.answers.forEach(answer => {
-      const button = document.createElement("button");
-      button.innerText = answer.text;
-      button.classList.add("btn");
-      button.addEventListener("click", () => selectAnswer(answer));
-      answerButtonsContainer.appendChild(button);
-    });
-  }
-
-  function selectAnswer(answer) {
-    if (answer.correct) {
-      score++;
-    }
-
-    if (currentQuestionIndex < questions.length - 1) {
-      currentQuestionIndex++;
-      showQuestion(questions[currentQuestionIndex]);
-    } else {
-      nextButton.style.display = "none";
-      submitButton.style.display = "block";
-    }
-  }
-
-  function nextQuestion() {
-    if (currentQuestionIndex < questions.length - 1) {
-      currentQuestionIndex++;
-      showQuestion(questions[currentQuestionIndex]);
-    }
-
-    if (currentQuestionIndex === questions.length - 1) {
-      nextButton.style.display = "none";
-      submitButton.style.display = "block";
-    }
-  }
-
-  function submitAnswers() {
-    resultContainer.innerHTML = `Your score: ${score} out of ${questions.length}`;
-  }
-
+      {
+        question: "SMALLEST CELL IN HUMAN BODY?",
+        answers: [
+          { text: "RBC", correct: false },
+          { text: "TESTOSTERONE", correct: true },
+          { text: "PLATELETS", correct: false },
+          { text: "WBC", correct: false }
+        ]
+      },
+      {
+        question: "WHERE IS BEKAL FORT LOCATED?",
+        answers: [
+          { text: "ERNAKULAM", correct: false },
+          { text: "KOTTAYAM", correct: false},
+          { text: "ALAPPUZHA", correct: false },
+          { text: "KASARGOD", correct: true }
+        ]
+      },
+      {
+      question: "RICE BOWL OF KERALA?",
+        answers: [
+          { text: "KOLLAM", correct: false },
+          { text: "ALAPPUZHA", correct: false},
+          { text: "MALAPPURAM", correct: false },
+          { text: "PLAKKAD", correct: true }
+      ]},
+    ];
   
-  startQuiz();
-</script>
+    let currentQuestionIndex = 0;
+    let score = 0;
+  
+    const questionContainer = document.getElementById("question-container");
+    const answerButtonsContainer = document.getElementById("answer-buttons");
+    const nextButton = document.getElementById("next-button");
+    const submitButton = document.getElementById("submit-button");
+    const resultContainer = document.getElementById("result-container");
+  
+    function startQuiz() {
+      nextButton.style.display = "none";
+      submitButton.style.display = "none";
+      resultContainer.innerHTML = "";
+      score = 0;
+      currentQuestionIndex = 0;
+      showQuestion(questions[currentQuestionIndex]);
+    }
+  
+    function showQuestion(question) {
+      questionContainer.innerText = question.question;
+      answerButtonsContainer.innerHTML = "";
+      question.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerText = answer.text;
+        button.classList.add("btn");
+        button.addEventListener("click", () => selectAnswer(answer));
+        answerButtonsContainer.appendChild(button);
+      });
+    }
+  
+    function selectAnswer(answer) {
+      if (answer.correct) {
+        score++;
+      }
+  
+      if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        showQuestion(questions[currentQuestionIndex]);
+      } else {
+        nextButton.style.display = "none";
+        submitButton.style.display = "block";
+      }
+    }
+  
+    function nextQuestion() {
+      if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        showQuestion(questions[currentQuestionIndex]);
+      }
+  
+      if (currentQuestionIndex === questions.length - 1) {
+        nextButton.style.display = "none";
+        submitButton.style.display = "block";
+      }
+    }
+  
+    function submitAnswers() {
+      resultContainer.innerHTML = `Your score:${score}/${questions.length}`;
+    }
+  
+    
+    startQuiz();
+  </script>
+  
+
 
 </body>
 </html>
