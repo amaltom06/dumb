@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #a {
+
+position: relative;
+
+width: 300px;
+
+height: 160px;
+
+background-color: #ccc;
+
+text-align: center;
+
+}
+#a img {
+
+    width: 100%;
+    
+    height: auto; }
+    
+    #b{
+    
+    position: absolute;
+    
+    top: 0;
+    
+    left: 0;
+    
+    width: 100%;
+    
+    height: 100%;
+    
+    background-color: rgba(0, 0, 0, 0.5);
+    
+    color: white;
+    
+    text-align: center;
+    
+    display: none; }
+                
+    </style>
+</head>
+<body>
+    <div id="a"><img src="https://wallpapercave.com/wp/wp5567124.jpg">
+        <p id="aa">this is mammootyy</p>
+    </div>
+    <div id="b"><img src="https://img.mensxp.com/media/content/2022/Sep/Dulquer-Salmaan--A-True-Pan-India-Star1400_632bebc930cc0.jpeg?w=820&h=540&cc=1">
+    </div>
+<script>
+    const fimage=document.getElementById('a');
+    const simage=document.getElementById('b');
+    const ftext=document.getElementById('aa');
+    fimage.addEventListener('mouseover',() => {
+       simage.style.display='block';
+       ftext.textContent = 'this is dulquer salman now!!'; });
+
+
+    fimage.addEventListener(' mouseout  ', () =>{
+        simage.style.display='none';
+        ftext.textContent='this is mammootty';});
+
+
+
+    
+
+</script>
+</body>
+</html>
